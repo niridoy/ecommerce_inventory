@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Models\Backend\Company;
+use App\Models\Backend\Supplier;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -39,7 +42,42 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:company');
+        $this->middleware('guest:supplier');
     }
+
+    public function showCompanyRegisterForm()
+    {
+        return view('auth.company_register');
+    }
+
+    public function showSupplierRegisterForm()
+    {
+        return view('auth.supplier_register');
+    }
+
+    protected function createCompany(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $company = Company::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/company');
+    }
+
+    protected function createSupplier(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $supplier = Supplier::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/supplier');
+    }
+
 
     /**
      * Get a validator for an incoming registration request.

@@ -82,12 +82,12 @@ return [
         ],
         'companies' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Backend\Company::class,
         ],
 
-        'supplier' => [
+        'suppliers' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Backend\Supplier::class,
         ],
 
 

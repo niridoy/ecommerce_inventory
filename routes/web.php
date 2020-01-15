@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
+    Auth::routes();
 
-Auth::routes();
+    Route::get('/login/company', 'Auth\LoginController@showCompanyLoginForm')->name('company.login.show');
+    Route::get('/login/supplier', 'Auth\LoginController@showSupplierLoginForm')->name('supplier.login.show');
+    Route::get('/register/company', 'Auth\RegisterController@showCompanyRegisterForm')->name('company.register.show');
+    Route::get('/register/supplier', 'Auth\RegisterController@showSupplierRegisterForm')->name('company.supplier.show');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/login/company', 'Auth\LoginController@companyLogin')->name('company.login.attempt');
+    Route::post('/login/supplier', 'Auth\LoginController@supplierLogin')->name('supplier.login.attempt');
+    Route::post('/register/company', 'Auth\RegisterController@createCompany')->name('company.store');
+    Route::post('/register/supplier', 'Auth\RegisterController@createSupplier')->name('supplier.store');
+
+    Route::view('/home', 'home')->middleware('auth');
+    Route::view('/company', 'home');
+    Route::view('/supplier', 'home');
