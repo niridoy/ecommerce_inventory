@@ -41,6 +41,16 @@ return [
             'provider' => 'users',
         ],
 
+        'company' => [
+            'driver' => 'session',
+            'provider' => 'companies',
+        ],
+
+        'supplier' => [
+            'driver' => 'session',
+            'provider' => 'suppliers',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -70,6 +80,16 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'companies' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+
+        'supplier' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
