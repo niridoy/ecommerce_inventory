@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
@@ -39,6 +40,12 @@
                         <!-- Authentication Links -->
 
                         @if(Auth::check())
+
+                        <li class="nav-item" >
+                            <a id="navbarDropdown" class="nav-link" href="#">
+                                Product Send
+                            </a>
+                        </li>
 
                         <li class="nav-item dropdown" >
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -158,6 +165,7 @@
     <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}" defer></script>
     <script src="{{ asset('js/popper.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}" defer></script>
     @stack('scripts')
 </body>
 </html>
