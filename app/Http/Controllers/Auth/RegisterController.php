@@ -58,7 +58,7 @@ class RegisterController extends Controller
 
     protected function createCompany(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->validatorCompany($request->all())->validate();
         $company = Company::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -69,7 +69,7 @@ class RegisterController extends Controller
 
     protected function createSupplier(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->validatorCSupplier($request->all())->validate();
         $supplier = Supplier::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -85,11 +85,20 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validatorCompany(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:companies'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    protected function validatorCSupplier(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:suppliers'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

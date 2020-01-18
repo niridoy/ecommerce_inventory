@@ -17,7 +17,7 @@ Route::view('/', 'welcome');
     Route::get('/login/company', 'Auth\LoginController@showCompanyLoginForm')->name('company.login.show');
     Route::get('/login/supplier', 'Auth\LoginController@showSupplierLoginForm')->name('supplier.login.show');
     Route::get('/register/company', 'Auth\RegisterController@showCompanyRegisterForm')->name('company.register.show');
-    Route::get('/register/supplier', 'Auth\RegisterController@showSupplierRegisterForm')->name('company.supplier.show');
+    Route::get('/register/supplier', 'Auth\RegisterController@showSupplierRegisterForm')->name('supplier.register.show');
 
     Route::post('/login/company', 'Auth\LoginController@companyLogin')->name('company.login.attempt');
     Route::post('/login/supplier', 'Auth\LoginController@supplierLogin')->name('supplier.login.attempt');
