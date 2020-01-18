@@ -24,6 +24,11 @@ Route::view('/', 'welcome');
     Route::post('/register/company', 'Auth\RegisterController@createCompany')->name('company.store');
     Route::post('/register/supplier', 'Auth\RegisterController@createSupplier')->name('supplier.store');
 
+
+    Route::prefix('dashboard')->group(function () {
+        Route::resource('products', 'Backend\ProductController');
+    });
+
     Route::view('/home', 'home')->middleware('auth');
     Route::view('/company', 'home');
     Route::view('/supplier', 'home');
