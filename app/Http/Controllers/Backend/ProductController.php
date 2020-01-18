@@ -14,7 +14,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth:supplier']);
+        $this->middleware(['auth:supplier,company']);
     }
 
     public function index()

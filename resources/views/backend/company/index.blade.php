@@ -52,7 +52,7 @@
                             </tr>
                          @empty
                             <tr>
-                                <td>Data Not Available</td>
+                                <td colspan="6">Data Not Available</td>
                             </tr>
                          @endforelse
                         </tbody>

@@ -12,7 +12,8 @@
 */
 
 Route::view('/', 'welcome');
-    Auth::routes();
+
+    Auth::routes(['register'=>false, 'login'=>false]);
 
     Route::get('/login/company', 'Auth\LoginController@showCompanyLoginForm')->name('company.login.show');
     Route::get('/login/supplier', 'Auth\LoginController@showSupplierLoginForm')->name('supplier.login.show');
@@ -33,7 +34,3 @@ Route::view('/', 'welcome');
         Route::get('/supplier-product-received/{id}', 'Backend\CompanyController@receivedProduct')->name('supplier.product.received');
 
     });
-
-    Route::view('/home', 'home')->middleware('auth');
-    Route::view('/company', 'home');
-    Route::view('/supplier', 'home');

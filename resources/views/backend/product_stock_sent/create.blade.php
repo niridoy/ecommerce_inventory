@@ -9,31 +9,13 @@
 
                 <div class="card-body">
                    @if(Session::has('success'))
-                   <div class="alert alert-success">
-                        <strong>Success!</strong> {{ Session::get('success') }}
-                    </div>
+                    <div class="alert alert-success">
+                            <strong>Success!</strong> {{ Session::get('success') }}
+                        </div>
                     @endif
                     <form method="POST" action="{{ route('product-sends.store') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }} <span class="text-danger">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
-
-                                @error('date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-
-                            <div class="col-md-12"><h5 class="text-center">Product Details</h5></div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="product_id" class="col-md-4 col-form-label text-md-right">{{ __('Product Name') }} <span class="text-danger">*</span></label>
@@ -47,6 +29,21 @@
                                 </select>
 
                                 @error('product_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }} <span class="text-danger">*</span></label>
+
+                            <div class="col-md-6">
+                                <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
+
+                                @error('date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -72,7 +69,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="submit_button" type="submit" class="btn btn-primary">
                                     {{ __('Submit') }}
                                 </button>
                             </div>

@@ -17,6 +17,11 @@
                 <div class="card-header">{{ __('Product List') }}</div>
 
                 <div class="card-body">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                            <strong>Success!</strong> {{ Session::get('success') }}
+                        </div>
+                    @endif
                     <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -44,7 +49,7 @@
                             </tr>
                          @empty
                             <tr>
-                                <td>Data Not Available</td>
+                                <td colspan="4">Data Not Available</td>
                             </tr>
                          @endforelse
                         </tbody>

@@ -17,6 +17,12 @@
                 <div class="card-header">{{ __('Product Stock Send List') }}</div>
 
                 <div class="card-body">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                            <strong>Success!</strong> {{ Session::get('success') }}
+                        </div>
+                    @endif
+
                     <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -32,7 +38,7 @@
                          @forelse ($ProductStockSendList as $ProductStockSend)
                             <tr>
                             <td>{{$ProductStockSend->date}}</td>
-                                <td><img class="product-img" src="{{ $ProductStockSend->image ? asset('storage/backend/images/product/'.$ProductStockSend->image) : asset('images/product_demo_img.png') }}" alt=""></td>
+                                <td><img class="product-img" src="{{ $ProductStockSend->product->image ? asset('storage/backend/images/product/'.$ProductStockSend->product->image) : asset('images/product_demo_img.png') }}" alt=""></td>
                                 <td>{{ $ProductStockSend->product->name  }}</td>
                                 <td>{{ $ProductStockSend->unit }}</td>
                                 <td>{!! $ProductStockSend->is_received == 1 ? '<span class="badge badge-success">Received</span>' : '<span class="badge badge-danger">Pending</span>' !!}</td>
@@ -53,7 +59,7 @@
                             </tr>
                          @empty
                             <tr>
-                                <td>Data Not Available</td>
+                                <td colspan="6">Data Not Available</td>
                             </tr>
                          @endforelse
                         </tbody>
