@@ -56,7 +56,7 @@ class LoginController extends Controller
 
         if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/company');
+            return redirect()->intended('/dashboard/product-receiveds');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
@@ -75,7 +75,7 @@ class LoginController extends Controller
 
         if (Auth::guard('supplier')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/supplier');
+            return redirect()->intended('/dashboard/product-sends');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

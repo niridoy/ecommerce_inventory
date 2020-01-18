@@ -8,6 +8,12 @@
                 <div class="card-header">{{ __('Add New Product') }}</div>
 
                 <div class="card-body">
+                    @if(Session::has('success'))
+                   <div class="alert alert-success">
+                        <strong>Success!</strong> {{ Session::get('success') }}
+                    </div>
+                    @endif
+
                     <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                         @csrf
 

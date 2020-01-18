@@ -8,6 +8,11 @@
                 <div class="card-header">{{ __('Update Product') }}</div>
 
                 <div class="card-body">
+                    @if(Session::has('success'))
+                   <div class="alert alert-success">
+                        <strong>Success!</strong> {{ Session::get('success') }}
+                    </div>
+                    @endif
                     <form method="POST" action="{{ route('products.update',$Product->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
