@@ -13,10 +13,10 @@
     Email: supplier@mail.com
     Password: 123456
 
-## Others
-1. Multiple companies and supplier function manage but code is a comment because you mentioned for a single user implementation for both.  
-
 ## Application Technology
 1. Programing Language: php (Laravel Framwork)
 2. Database: mysql
+
+## Others
+1. Multiple companies and supplier function manage but code is a comment because you mentioned for a single user implementation for both.  
 
