@@ -14,7 +14,7 @@
     Password: 123456
 
 ## Application Technology
-1. Programing Language: php (Laravel Framwork)
+1. Programing Language: php (Laravel Framework)
 2. Database: mysql
 
 ## Others
