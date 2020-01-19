@@ -1,11 +1,11 @@
 
 ## Install Instruction
 1. php artisan key:generate
-3  .env configration 
-4. php artisan migrate
-5. php artisan db:seed
-6. php artisan serve
-7. php artisan storage:link
+2  .env configration 
+3. php artisan migrate
+4. php artisan db:seed
+5. php artisan serve
+6. php artisan storage:link
 
 ## Login Details 
 1. Company
